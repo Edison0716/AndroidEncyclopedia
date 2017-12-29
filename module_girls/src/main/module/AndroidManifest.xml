@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.junlong0716.module.main">
+          package="com.junlong0716.module.girls">
 
     <application
-        android:name="debug.MainModuleApplication"
-        android:label="@string/module_main"
+        android:name="debug.GirlsModuleApplication"
+        android:label="@string/module_girls"
         android:theme="@style/AppTheme">
-        <activity android:name="com.junlong0716.module.main.MainActivity">
+        <activity android:name=".GirlsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
