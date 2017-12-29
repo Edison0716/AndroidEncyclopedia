@@ -56,9 +56,16 @@ dependencies {
     api "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
     api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit"
 
+    //okhttp
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp"
+
     //rxJava
     api "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid"
     api "io.reactivex.rxjava2:rxjava:$rootProject.rxJava"
+
+    //rxLifeCycle
+    api "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rootProject.rxLifeCycle"
+    api "com.trello.rxlifecycle2:rxlifecycle-components:$rootProject.rxLifeCycle"
 
     //support test
     testImplementation 'junit:junit:4.12'

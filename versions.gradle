@@ -17,6 +17,8 @@ rootProject.ext {
     annotationProcessor = "1.1.4"
     materialDialogs = "0.9.6.0"
     retrofit="2.3.0"
+    okhttp="3.9.1"
     rxAndroid = "2.0.1"
     rxJava = "2.1.7"
+    rxLifeCycle = "2.2.1"
 }
