@@ -32,6 +32,6 @@ dependencies {
     if (!isModule.toBoolean()) {
         implementation project(':module_main')
         implementation project(':module_girls')
-
+        implementation project(':module_weather')
     }
 }

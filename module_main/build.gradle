@@ -52,5 +52,3 @@ dependencies {
     kapt "com.alibaba:arouter-compiler:$rootProject.annotationProcessor"
     implementation project(':module_common')
 }
-
-apply plugin: 'kotlin-android-extensions'

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.junlong0716.module.main">
+
+    <application
+        android:name="debug.WeatherModuleApplication"
+        android:label="@string/module_weather"
+        android:theme="@style/AppTheme">
+
+    </application>
+
+</manifest>

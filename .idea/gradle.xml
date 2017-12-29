@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/module_common" />
             <option value="$PROJECT_DIR$/module_girls" />
             <option value="$PROJECT_DIR$/module_main" />
+            <option value="$PROJECT_DIR$/module_weather" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
