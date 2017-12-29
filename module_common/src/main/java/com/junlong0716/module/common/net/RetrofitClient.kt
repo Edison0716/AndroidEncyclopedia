@@ -3,7 +3,6 @@ package com.junlong0716.module.common.net
 import com.google.gson.GsonBuilder
 import com.junlong0716.module.common.net.ServerConstant.BASE_SERVER_URL
 import com.junlong0716.module.common.net.ServerConstant.DEFAULT_TIMEOUT
-import com.junlong0716.module.common.utilcode.util.LogUtils
 import com.junlong0716.module.common.utilcode.util.NetworkUtils
 import com.junlong0716.module.common.utilcode.util.Utils
 import okhttp3.*
@@ -12,8 +11,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
-import java.io.UnsupportedEncodingException
-import java.net.URLDecoder
 import java.util.concurrent.TimeUnit
 
 /**
@@ -25,7 +22,6 @@ import java.util.concurrent.TimeUnit
 class RetrofitClient {
     private var retrofit: Retrofit
 
-
     companion object {
         private var retrofitClient = RetrofitClient()
 
@@ -35,7 +31,7 @@ class RetrofitClient {
     }
 
     constructor() {
-        var interceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { message ->
+        var interceptor = HttpLoggingInterceptor(/*HttpLoggingInterceptor.Logger { message ->
             try {
                 val text = URLDecoder.decode(message, "utf-8")
                 LogUtils.e("OKHttp-----", text)
@@ -43,7 +39,7 @@ class RetrofitClient {
                 e.printStackTrace()
                 LogUtils.e("OKHttp-----", message)
             }
-        })
+        }*/)
 
         interceptor.level = HttpLoggingInterceptor.Level.BODY
 
