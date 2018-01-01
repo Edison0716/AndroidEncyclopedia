@@ -28,16 +28,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         //BarUtils.setStatusBarAlpha(this)
-//        RetrofitClient.getRetrofitClient().create(ServerApi::class.java)
-//                .getMezi()
-//                .compose(this.bindToLifecycle())
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(object :DefaultObserver<BasicResponse<List<MeiZi>>>(this){
-//                    override fun onSuccess(response: BasicResponse<List<MeiZi>>) {
-//                        ToastUtils.showShort(response.results.size.toString())
-//                    }
-//                })
         initView()
         initFragment(savedInstanceState)
     }

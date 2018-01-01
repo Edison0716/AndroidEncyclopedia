@@ -1,6 +1,7 @@
 package com.junlong0716.module.girls
 
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
@@ -26,12 +27,19 @@ class GirlsFragment : Fragment() {
 
         var pager = view.findViewById<ViewPager>(R.id.view_pager)
 
-        var mPagerAdapter = ViewPagerAdapter(childFragmentManager)
+        var tab = view.findViewById<TabLayout>(R.id.tabs)
 
-        pager.adapter = mPagerAdapter
+        var mPagerAdapter = ViewPagerAdapter(childFragmentManager)
 
         mPagerAdapter.addFrag(GankFragment(), "干货")
 
+        pager.adapter = mPagerAdapter
+
+        pager.offscreenPageLimit = pager.getAdapter()!!.getCount()
+
+        tab.setupWithViewPager(pager)
+
+        tab.tabMode = TabLayout.MODE_SCROLLABLE
         return view
     }
 
