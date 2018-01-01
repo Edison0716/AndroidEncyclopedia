@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Android Encyclopedia.iml" filepath="$PROJECT_DIR$/Android Encyclopedia.iml" />
       <module fileurl="file://$PROJECT_DIR$/AndroidEncyclopedia.iml" filepath="$PROJECT_DIR$/AndroidEncyclopedia.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidEncyclopedia-master.iml" filepath="$PROJECT_DIR$/AndroidEncyclopedia-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_common/module_common.iml" filepath="$PROJECT_DIR$/module_common/module_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_common/module_common.iml" filepath="$PROJECT_DIR$/module_common/module_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_girls/module_girls.iml" filepath="$PROJECT_DIR$/module_girls/module_girls.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_main/module_main.iml" filepath="$PROJECT_DIR$/module_main/module_main.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_main/module_main.iml" filepath="$PROJECT_DIR$/module_main/module_main.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_weather/module_weather.iml" filepath="$PROJECT_DIR$/module_weather/module_weather.iml" />
     </modules>

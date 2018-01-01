@@ -67,6 +67,9 @@ dependencies {
     api "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rootProject.rxLifeCycle"
     api "com.trello.rxlifecycle2:rxlifecycle-components:$rootProject.rxLifeCycle"
 
+    //recyclerview adapter
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.recyclerviewAdapter"
+
     //support test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

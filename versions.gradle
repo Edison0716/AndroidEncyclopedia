@@ -21,4 +21,5 @@ rootProject.ext {
     rxAndroid = "2.0.1"
     rxJava = "2.1.7"
     rxLifeCycle = "2.2.1"
+    recyclerviewAdapter = "2.9.30"
 }
