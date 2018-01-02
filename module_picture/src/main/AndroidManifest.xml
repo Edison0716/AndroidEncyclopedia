@@ -3,6 +3,8 @@
 
     <application
         android:theme="@style/AppTheme">
-
+        <activity android:name="com.htxcsoft.module_photo.ExhibitPhotoActivity"
+                  android:theme="@style/AppFullScreenTheme"
+                  android:screenOrientation="portrait"></activity>
     </application>
 </manifest>

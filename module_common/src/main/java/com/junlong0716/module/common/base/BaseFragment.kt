@@ -37,6 +37,7 @@ abstract class BaseFragment<P : IPresenter> : RxFragment() {
     abstract fun attachPresenter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         mRootView = inflater.inflate(getLayoutId(), container, false)
         initViews(mRootView)
         return mRootView
@@ -71,6 +72,8 @@ abstract class BaseFragment<P : IPresenter> : RxFragment() {
     override fun onDestroy() {
         super.onDestroy()
         mPresenter!!.onDestroy()
+        isViewPrepared = false
+        hasFetchData = false
         mPresenter = null
         mRootView = null
         if (RxBus.getDefault().isRegistered(this)) {

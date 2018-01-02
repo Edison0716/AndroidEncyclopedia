@@ -1,10 +1,14 @@
 package com.junlong0716.module.girls.adapter
 
+import android.app.Activity
 import android.content.Context
+import android.support.v4.app.ActivityCompat
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.htxcsoft.corelibrary.glide.GlideApp
@@ -41,6 +45,12 @@ class GirlsAdapter(girls: ArrayList<MeiZi>, context: Context) : RecyclerView.Ada
                 .transition(DrawableTransitionOptions.withCrossFade(500))
                 .into(holder!!.ivGirl)
 
+        holder.ivGirl.setOnClickListener { p0 -> startPictureActivity(p0!!, position) }
+
+    }
+
+    private fun startPictureActivity(transitView: View, position: Int) {
+        ARouter.getInstance().build("/module_picture/exhibit_photo_activity").navigation()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): GirlsViewHolder {

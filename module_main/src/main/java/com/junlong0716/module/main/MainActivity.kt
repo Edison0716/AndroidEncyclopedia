@@ -81,7 +81,7 @@ class MainActivity : RxAppCompatActivity() {
                 when (item.itemId) {
                     R.id.menu_girls -> {
                         item.isChecked = true
-                        ARouter.getInstance().build("/module_girls/GirlsActivity").navigation();
+                        ARouter.getInstance().build("/module_girls/GirlsActivity").navigation()
                     }
                 }
             }

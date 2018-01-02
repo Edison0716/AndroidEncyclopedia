@@ -1,7 +1,6 @@
 package com.junlong0716.module.girls
 
 import com.junlong0716.module.common.base.BasePresenter
-import com.junlong0716.module.common.base.IPresenter
 import com.junlong0716.module.common.net.DefaultObserver
 import com.junlong0716.module.common.net.RetrofitClient
 import com.junlong0716.module.common.net.model.BasicResponse
@@ -21,7 +20,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class GankFPresenter : BasePresenter<GankFContract.View>(), GankFContract.Presenter {
 
-    override fun requestGankMeiZi(fragment: RxFragment,page:String) {
+    override fun requestGankMeiZi(fragment: RxFragment, page: String) {
         RetrofitClient.getRetrofitClient().create(ServerApi::class.java)
                 .getMezi(page)
                 .compose(fragment.bindToLifecycle())

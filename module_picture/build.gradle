@@ -52,5 +52,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     kapt "com.alibaba:arouter-compiler:$rootProject.annotationProcessor"
+    compile 'com.github.chrisbanes:PhotoView:2.1.3'
     implementation project(':module_common')
 }

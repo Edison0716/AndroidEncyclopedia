@@ -39,7 +39,7 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
         if (r.from == "GankFragment") {
             if (isLoadingMore) {
                 currentPage += 1
-                girlsAdapter.addData(girlsAdapter.getData().size,r.girls)
+                girlsAdapter.addData(girlsAdapter.getData().size, r.girls)
                 isLoadingMore = false
             } else {
                 refreshLayout.isRefreshing = false
@@ -76,10 +76,14 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
                 }
             }
         })
+
+        girlsAdapter
     }
 
     override fun lazyFetchData() {
+        currentPage = 1
         isLoadingMore = false
+        girlsList.clear()
         mPresenter!!.requestGankMeiZi(this, currentPage.toString())
     }
 
@@ -94,10 +98,7 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
     }
 
     override fun onRefresh() {
-        currentPage = 1
-        isLoadingMore = false
-        girlsList.clear()
-        mPresenter!!.requestGankMeiZi(this, currentPage.toString())
+        lazyFetchData()
     }
 
 }
