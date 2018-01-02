@@ -6,7 +6,7 @@ package com.junlong0716.module.girls
  *@date: Created in 上午11:10 2017/12/29
  *@modified by:
  */
-class MeiZi{
+class MeiZi {
     /**
      * _id : 59cd9b53421aa9727fdb25eb
      * createdAt : 2017-09-29T09:01:07.894Z
@@ -27,6 +27,9 @@ class MeiZi{
     private var url: String? = null
     private var used: Boolean = false
     private var who: String? = null
+
+    private var width: Int? = null
+    private var height: Int? = null
 
     fun get_id(): String? {
         return _id
@@ -99,4 +102,22 @@ class MeiZi{
     fun setWho(who: String) {
         this.who = who
     }
+
+    fun setWidth(width: Int) {
+        this.width = width
+    }
+
+    fun getWidth(): Int? {
+        return width
+    }
+
+
+    fun setHeight(height: Int) {
+        this.height = height
+    }
+
+    fun getHeight(): Int? {
+        return height
+    }
+
 }

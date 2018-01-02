@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +15,11 @@ import com.junlong0716.module.common.net.DefaultObserver
 import com.junlong0716.module.common.net.RetrofitClient
 import com.junlong0716.module.common.net.model.BasicResponse
 import com.junlong0716.module.common.utilcode.util.ToastUtils
+import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import okhttp3.RequestBody
 
 /**
  *@author: 巴黎没有摩天轮Li
@@ -46,8 +50,35 @@ class GankFragment : BaseFragment() {
                         girlsList.addAll(response.results as ArrayList<MeiZi>)
                         refreshLayout.isRefreshing = false
                         girlsAdapter.notifyDataSetChanged()
+
+
                     }
                 })
+
+//        RetrofitClient.getRetrofitClient().create(ServerApi::class.java)
+//                .getMeziJD(0)
+//                .compose(this.bindToLifecycle())
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(object : Observer<RequestBody>{
+//                    override fun onError(e: Throwable) {
+//                      Log.e("error",e.message)
+//
+//                    }
+//
+//                    override fun onComplete() {
+//
+//                    }
+//
+//                    override fun onSubscribe(d: Disposable) {
+//
+//                    }
+//
+//                    override fun onNext(t: RequestBody) {
+//                        ToastUtils.showShort(t.toString())
+//                    }
+//
+//                })
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -61,7 +92,7 @@ class GankFragment : BaseFragment() {
         var rvGirlsList = view.findViewById<RecyclerView>(R.id.rv_girls_list)
         rvGirlsList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         //rvGirlsList.layoutManager = LinearLayoutManager(activity)
-        girlsAdapter = GirlsAdapter(girlsList,R.layout.item_girl_layout)
+        girlsAdapter = GirlsAdapter(girlsList,context!!)
         rvGirlsList.adapter = girlsAdapter
 
         return view
