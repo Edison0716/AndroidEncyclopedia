@@ -1,12 +1,15 @@
 package com.junlong0716.module.girls
 
+
+import java.io.Serializable
+
 /**
  *@author: 巴黎没有摩天轮Li
  *@description:
  *@date: Created in 上午11:10 2017/12/29
  *@modified by:
  */
-class MeiZi {
+class MeiZi :Serializable{
     /**
      * _id : 59cd9b53421aa9727fdb25eb
      * createdAt : 2017-09-29T09:01:07.894Z

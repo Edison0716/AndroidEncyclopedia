@@ -1,12 +1,9 @@
 package com.junlong0716.module.girls
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +11,12 @@ import com.junlong0716.module.common.base.BaseFragment
 import com.junlong0716.module.common.net.DefaultObserver
 import com.junlong0716.module.common.net.RetrofitClient
 import com.junlong0716.module.common.net.model.BasicResponse
+import com.junlong0716.module.common.rxbus.RxBus
+import com.junlong0716.module.common.rxbus.Subscribe
+import com.junlong0716.module.common.rxbus.ThreadMode
 import com.junlong0716.module.common.utilcode.util.ToastUtils
-import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import okhttp3.RequestBody
 
 /**
  *@author: 巴黎没有摩天轮Li
@@ -30,8 +27,17 @@ import okhttp3.RequestBody
 class GankFragment : BaseFragment() {
     private lateinit var refreshLayout: SwipeRefreshLayout
     private lateinit var girlsList: ArrayList<MeiZi>
-    private lateinit var girlsAdapter:GirlsAdapter
+    private lateinit var girlsAdapter: GirlsAdapter
 
+    //EventBus 3.0 回调
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun eventBus(r: GirlsComingEvent) {
+        if (r.from == "GankFragment") {
+            refreshLayout.isRefreshing = false
+            girlsList.addAll(r.girls)
+            girlsAdapter.notifyDataSetChanged()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         girlsList = ArrayList()
@@ -47,11 +53,11 @@ class GankFragment : BaseFragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : DefaultObserver<BasicResponse<List<MeiZi>>>(parentFragment!!.activity!!, false) {
                     override fun onSuccess(response: BasicResponse<List<MeiZi>>) {
-                        girlsList.addAll(response.results as ArrayList<MeiZi>)
-                        refreshLayout.isRefreshing = false
-                        girlsAdapter.notifyDataSetChanged()
+//                        girlsList.addAll(response.results as ArrayList<MeiZi>)
+//                        refreshLayout.isRefreshing = false
+//                        girlsAdapter.notifyDataSetChanged()
 
-
+                        GirlService.start(this@GankFragment.context!!, "GankFragment", response.results as ArrayList<MeiZi>)
                     }
                 })
 
@@ -82,7 +88,7 @@ class GankFragment : BaseFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
+        RxBus.getDefault().register(this)
         var view = inflater.inflate(R.layout.fragment_girls_list, container, false)
         refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.srl_refresh)
         refreshLayout.post({
@@ -92,9 +98,16 @@ class GankFragment : BaseFragment() {
         var rvGirlsList = view.findViewById<RecyclerView>(R.id.rv_girls_list)
         rvGirlsList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         //rvGirlsList.layoutManager = LinearLayoutManager(activity)
-        girlsAdapter = GirlsAdapter(girlsList,context!!)
+        girlsAdapter = GirlsAdapter(girlsList, context!!)
         rvGirlsList.adapter = girlsAdapter
 
         return view
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (RxBus.getDefault().isRegistered(this)) {
+            RxBus.getDefault().unregister(this)
+        }
     }
 }
