@@ -2,8 +2,8 @@ package com.junlong0716.module.common
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
-import com.junlong0716.module.common.utilcode.util.AppUtils
-import com.junlong0716.module.common.utilcode.util.Utils
+import com.blankj.utilcode.util.AppUtils
+import com.blankj.utilcode.util.Utils
 
 /**
  *@author: 巴黎没有摩天轮Li
