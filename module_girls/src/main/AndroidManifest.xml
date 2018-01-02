@@ -4,6 +4,6 @@
     <application
         android:theme="@style/AppTheme">
         <activity android:name=".GirlsActivity"></activity>
-        <service android:name=".GirlService"></service>
+        <service android:name=".service.GirlService"></service>
     </application>
 </manifest>

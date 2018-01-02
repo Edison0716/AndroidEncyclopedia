@@ -1,8 +1,10 @@
 package com.junlong0716.module.common.rxbus;
 
 /**
- *
- * Created by gorden on 2016/7/23.
+ * @author: 巴黎没有摩天轮Li
+ * @description:
+ * @date: Created in 下午1:15 2018/1/1
+ * @modified by:
  */
 public enum ThreadMode {
     /**

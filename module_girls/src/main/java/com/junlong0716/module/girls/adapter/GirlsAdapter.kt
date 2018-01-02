@@ -1,4 +1,4 @@
-package com.junlong0716.module.girls
+package com.junlong0716.module.girls.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -9,6 +9,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.htxcsoft.corelibrary.glide.GlideApp
 import com.junlong0716.module.common.widget.RatioImageView
+import com.junlong0716.module.girls.R
+import com.junlong0716.module.girls.model.MeiZi
 
 /**
  *@author: 巴黎没有摩天轮Li

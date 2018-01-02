@@ -4,8 +4,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- *
- * Created by gorden on 2016/7/23.
+ * @author: 巴黎没有摩天轮Li
+ * @description:
+ * @date: Created in 下午1:15 2018/1/1
+ * @modified by:
  */
 public class SubscriberMethod {
     public Method method;
@@ -25,14 +27,15 @@ public class SubscriberMethod {
 
     /**
      * 调用方法
+     *
      * @param o 参数
      */
-    public void invoke(Object o){
+    public void invoke(Object o) {
         try {
             Class[] parameterType = method.getParameterTypes();
-            if(parameterType != null && parameterType.length == 1){
+            if (parameterType != null && parameterType.length == 1) {
                 method.invoke(subscriber, o);
-            }else if(parameterType == null || parameterType.length == 0){
+            } else if (parameterType == null || parameterType.length == 0) {
                 method.invoke(subscriber);
             }
         } catch (IllegalAccessException e) {

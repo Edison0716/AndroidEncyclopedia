@@ -1,4 +1,4 @@
-package com.junlong0716.module.girls
+package com.junlong0716.module.girls.model
 
 
 import java.io.Serializable

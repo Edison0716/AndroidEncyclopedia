@@ -1,4 +1,4 @@
-package com.junlong0716.module.girls
+package com.junlong0716.module.girls.service
 
 import android.app.IntentService
 import android.content.Context
@@ -6,6 +6,8 @@ import android.content.Intent
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.htxcsoft.corelibrary.glide.GlideApp
 import com.junlong0716.module.common.rxbus.RxBus
+import com.junlong0716.module.girls.event.GirlsComingEvent
+import com.junlong0716.module.girls.model.MeiZi
 import java.io.Serializable
 
 /**

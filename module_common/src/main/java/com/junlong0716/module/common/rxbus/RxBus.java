@@ -21,9 +21,10 @@ import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
 
 /**
- * RxBus
- * Created by gorden on 2016/5/12.
- * update 2017/3/1
+ * @author: 巴黎没有摩天轮Li
+ * @description:
+ * @date: Created in 下午1:15 2018/1/1
+ * @modified by:
  */
 
 @SuppressWarnings("unused")

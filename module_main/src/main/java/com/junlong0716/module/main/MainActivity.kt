@@ -1,7 +1,6 @@
 package com.junlong0716.module.main
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -9,15 +8,13 @@ import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
 import android.view.MenuItem
 import com.alibaba.android.arouter.launcher.ARouter
-import com.junlong0716.module.common.base.BaseActivity
-import com.junlong0716.module.common.utilcode.util.BarUtils
-import com.junlong0716.module.common.utilcode.util.ToastUtils
 import com.junlong0716.module.main.utils.RxDrawer
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.activity_splash.*
 
 
-class MainActivity : BaseActivity() {
+class MainActivity : RxAppCompatActivity() {
     private lateinit var girlsFragment: Fragment
     private var currentFragmentTag: String? = null
     private val FRAGMENT_TAG_GIRLS = "girls"
@@ -27,8 +24,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        //BarUtils.setStatusBarAlpha(this)
-        initView()
+        initView(savedInstanceState)
         initFragment(savedInstanceState)
     }
 
@@ -72,7 +68,7 @@ class MainActivity : BaseActivity() {
         invalidateOptionsMenu()
     }
 
-    private fun initView() {
+    private fun initView(savedInstanceState: Bundle?) {
         fragmentManager = supportFragmentManager
         navigation_view.inflateHeaderView(R.layout.drawer_header)
         navigation_view.setCheckedItem(R.id.menu_girls)
