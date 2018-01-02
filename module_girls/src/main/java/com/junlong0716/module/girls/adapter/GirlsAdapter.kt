@@ -2,8 +2,10 @@ package com.junlong0716.module.girls.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.htxcsoft.corelibrary.glide.GlideApp
+import com.junlong0716.module.common.constant.Constant
 import com.junlong0716.module.common.widget.RatioImageView
 import com.junlong0716.module.girls.R
 import com.junlong0716.module.girls.model.MeiZi
@@ -50,7 +53,10 @@ class GirlsAdapter(girls: ArrayList<MeiZi>, context: Context) : RecyclerView.Ada
     }
 
     private fun startPictureActivity(transitView: View, position: Int) {
-        ARouter.getInstance().build("/module_picture/exhibit_photo_activity").navigation()
+        var options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as AppCompatActivity, transitView, Constant.TRANSIT_PIC)
+        var bundle = Bundle()
+        bundle.putString("picUrl", girls[position].getUrl())
+        ARouter.getInstance().build("/module_picture/exhibit_photo_activity").with(bundle).withOptionsCompat(options).navigation(context as AppCompatActivity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): GirlsViewHolder {

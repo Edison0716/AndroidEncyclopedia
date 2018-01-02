@@ -1,10 +1,10 @@
 package com.junlong0716.module.common.net
 
+import com.blankj.utilcode.util.NetworkUtils
+import com.blankj.utilcode.util.Utils
 import com.google.gson.GsonBuilder
 import com.junlong0716.module.common.net.ServerConstant.BASE_SERVER_URL
 import com.junlong0716.module.common.net.ServerConstant.DEFAULT_TIMEOUT
-import com.junlong0716.module.common.utilcode.util.NetworkUtils
-import com.junlong0716.module.common.utilcode.util.Utils
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

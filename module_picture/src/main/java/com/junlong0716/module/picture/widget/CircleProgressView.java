@@ -14,7 +14,8 @@ import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ProgressBar;
 
-import com.junlong0716.module.common.utilcode.util.ConvertUtils;
+
+import com.blankj.utilcode.util.ConvertUtils;
 import com.junlong0716.module.picture.R;
 
 import java.lang.annotation.Retention;

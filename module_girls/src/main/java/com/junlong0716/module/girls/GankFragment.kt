@@ -6,19 +6,12 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
 import com.junlong0716.module.common.base.BaseFragment
-import com.junlong0716.module.common.net.DefaultObserver
-import com.junlong0716.module.common.net.RetrofitClient
-import com.junlong0716.module.common.net.model.BasicResponse
 import com.junlong0716.module.common.rxbus.Subscribe
 import com.junlong0716.module.common.rxbus.ThreadMode
-import com.junlong0716.module.common.utilcode.util.ToastUtils
 import com.junlong0716.module.girls.adapter.GirlsAdapter
-import com.junlong0716.module.girls.api.ServerApi
 import com.junlong0716.module.girls.event.GirlsComingEvent
 import com.junlong0716.module.girls.model.MeiZi
 import com.junlong0716.module.girls.service.GirlService
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 /**
  *@author: 巴黎没有摩天轮Li

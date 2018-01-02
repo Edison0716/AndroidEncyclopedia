@@ -1,17 +1,15 @@
 package com.junlong0716.module.common.net
 
 import android.app.Activity
-import com.junlong0716.module.common.net.model.BasicResponse
-import io.reactivex.Observer
-import com.afollestad.materialdialogs.MaterialDialog
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.text.TextUtils
 import android.widget.Toast
+import com.afollestad.materialdialogs.MaterialDialog
+import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.google.gson.JsonParseException
 import com.junlong0716.module.common.R
-import com.junlong0716.module.common.utilcode.util.LogUtils
-import com.junlong0716.module.common.utilcode.util.SnackbarUtils
-import com.junlong0716.module.common.utilcode.util.ToastUtils
+import com.junlong0716.module.common.net.model.BasicResponse
+import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import org.json.JSONException
 import retrofit2.adapter.rxjava2.HttpException

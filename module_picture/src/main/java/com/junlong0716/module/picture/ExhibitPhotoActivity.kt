@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
+import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.ToastUtils
 
 import com.htxcsoft.module_photo.adapter.ExhibitPhotoAdapter
 import com.junlong0716.module.common.base.BaseActivity
@@ -28,12 +31,10 @@ class ExhibitPhotoActivity : BaseActivity<ExhibitPhotoContract.Presenter>() {
 
 
     override fun beforeSetLayout() {
+        var bundle = intent.extras
+        var picUrl = bundle.getString("picUrl")
         mPhotoUrl = ArrayList()
-        mPhotoUrl.add("http://www.4k123.com/data/attachment/forum/201704/11/180811iwtvfu9kvulgratt.jpg")
-        mPhotoUrl.add("http://www.4k123.com/data/attachment/forum/201704/11/180811fme9905l11eil5nk.jpg")
-        mPhotoUrl.add("http://www.4k123.com/data/attachment/forum/201704/11/180812q7zltokl77ozkzno.jpg")
-        mPhotoUrl.add("http://www.4k123.com/data/attachment/forum/201704/11/180812u4zxe4n4tdk4kcni.jpg")
-        mPhotoUrl.add("http://tupian.enterdesk.com/2015/mxy/6/14/12/3.jpg")
+        mPhotoUrl.add(picUrl)
     }
 
     override fun getLayoutId(): Int = R.layout.activity_exhibit_photo

@@ -1,10 +1,10 @@
 package com.junlong0716.module.girls
 
+import com.blankj.utilcode.util.ToastUtils
 import com.junlong0716.module.common.base.BasePresenter
 import com.junlong0716.module.common.net.DefaultObserver
 import com.junlong0716.module.common.net.RetrofitClient
 import com.junlong0716.module.common.net.model.BasicResponse
-import com.junlong0716.module.common.utilcode.util.ToastUtils
 import com.junlong0716.module.girls.api.ServerApi
 import com.junlong0716.module.girls.model.MeiZi
 import com.junlong0716.module.girls.service.GirlService
