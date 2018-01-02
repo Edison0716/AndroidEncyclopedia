@@ -10,4 +10,6 @@ import com.junlong0716.module.common.BaseApplication
  */
 class PictureModuleApplication : BaseApplication() {
 
+
+
 }

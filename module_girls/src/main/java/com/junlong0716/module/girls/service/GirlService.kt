@@ -3,6 +3,7 @@ package com.junlong0716.module.girls.service
 import android.app.IntentService
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.htxcsoft.corelibrary.glide.GlideApp
 import com.junlong0716.module.common.rxbus.RxBus
@@ -39,11 +40,17 @@ class GirlService : IntentService("GirlService") {
         var girls = p0!!.getSerializableExtra(KEY_EXTRA_GIRL_LIST) as ArrayList<MeiZi>
 
         for (i in 0 until girls.size) {
-
-            var bitmap = GlideApp.with(this).asBitmap().load(girls[i].getUrl())
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .submit()
-                    .get()
+            var bitmap: Bitmap? = null
+            //防止OOM
+            try {
+                bitmap = GlideApp.with(this).asBitmap()
+                        .load(girls[i].getUrl())
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .submit()
+                        .get()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
 
             if (bitmap != null) {
                 girls[i].setHeight(bitmap.height)

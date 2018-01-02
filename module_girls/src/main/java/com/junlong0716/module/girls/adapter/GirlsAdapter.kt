@@ -56,4 +56,13 @@ class GirlsAdapter(girls: ArrayList<MeiZi>, context: Context) : RecyclerView.Ada
 
 
     override fun getItemId(position: Int): Long = girls[position].hashCode().toLong()
+
+    fun addData(position: Int, data: List<MeiZi>) {
+        this.girls.addAll(position, data)
+        this.notifyItemRangeInserted(position, data.size)
+    }
+
+    fun getData(): List<MeiZi> {
+        return girls
+    }
 }
