@@ -33,5 +33,6 @@ dependencies {
         implementation project(':module_main')
         implementation project(':module_girls')
         implementation project(':module_weather')
+        implementation project(':module_picture')
     }
 }
