@@ -23,9 +23,9 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 
 class MainActivity : RxAppCompatActivity() {
-    private lateinit var girlsFragment: Fragment
     private var currentFragmentTag: String? = null
     private val FRAGMENT_TAG_GIRLS = "girls"
+    private val FRAGMENT_TAG_WEATHER = "weather"
     private val CURRENT_INDEX = "currentIndex"
     private lateinit var fragmentManager: FragmentManager
 
@@ -65,6 +65,7 @@ class MainActivity : RxAppCompatActivity() {
         if (currentFragment != null) {
             ft.hide(currentFragment)
         }
+
         var foundFragment: Fragment? = fragmentManager.findFragmentByTag(name)
 
         if (foundFragment == null) {
@@ -72,12 +73,17 @@ class MainActivity : RxAppCompatActivity() {
                 FRAGMENT_TAG_GIRLS -> {
                     foundFragment = ARouter.getInstance().build("/module_girls/GirlsFragment").navigation() as Fragment
                 }
+                FRAGMENT_TAG_WEATHER -> {
+                    foundFragment = ARouter.getInstance().build("/module_weather/WeatherFragment").navigation() as Fragment
+                }
             }
         }
         when {
             foundFragment == null -> {
             }
+
             foundFragment.isAdded -> ft.show(foundFragment)
+
             else -> ft.add(R.id.contentLayout, foundFragment, name)
         }
         ft.commit()
@@ -98,7 +104,12 @@ class MainActivity : RxAppCompatActivity() {
                 when (item.itemId) {
                     R.id.menu_girls -> {
                         item.isChecked = true
-                        ARouter.getInstance().build("/module_girls/GirlsActivity").navigation()
+                        switchContent(FRAGMENT_TAG_GIRLS)
+                        //ARouter.getInstance().build("/module_girls/GirlsActivity").navigation()
+                    }
+                    R.id.menu_weather -> {
+                        item.isChecked = true
+                        switchContent(FRAGMENT_TAG_WEATHER)
                     }
                 }
             }
@@ -118,17 +129,17 @@ class MainActivity : RxAppCompatActivity() {
     }
 
 
-    fun initDrawer(toolbar: Toolbar?) {
+    private fun initDrawer(toolbar: Toolbar?) {
         if (toolbar != null) {
-           var toggle = object :ActionBarDrawerToggle(this,drawer_layout,toolbar,R.string.open, R.string.close){
-               override fun onDrawerOpened(drawerView: View) {
-                   super.onDrawerOpened(drawerView)
-               }
+            var toggle = object : ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.open, R.string.close) {
+                override fun onDrawerOpened(drawerView: View) {
+                    super.onDrawerOpened(drawerView)
+                }
 
-               override fun onDrawerClosed(drawerView: View) {
-                   super.onDrawerClosed(drawerView)
-               }
-           }
+                override fun onDrawerClosed(drawerView: View) {
+                    super.onDrawerClosed(drawerView)
+                }
+            }
             toggle.syncState()
             drawer_layout.addDrawerListener(toggle)
         }
