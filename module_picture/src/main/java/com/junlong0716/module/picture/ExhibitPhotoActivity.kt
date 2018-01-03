@@ -43,13 +43,14 @@ class ExhibitPhotoActivity : BaseActivity<ExhibitPhotoContract.Presenter>() {
 
     @SuppressLint("RestrictedApi")
     override fun initView(savedInstanceState: Bundle?) {
+        showSystemUI()
         setSupportActionBar(toolbar)
         toolbar.bringToFront()
         if (supportActionBar != null) {
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         }
         supportActionBar!!.setShowHideAnimationEnabled(true)
-
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
 
         mPhotoList = ArrayList()
         for (i in 0 until mPhotoUrl.size) {
@@ -113,11 +114,17 @@ class ExhibitPhotoActivity : BaseActivity<ExhibitPhotoContract.Presenter>() {
                 or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_FULLSCREEN
                 or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+
+        tv_page_indicator.visibility = View.GONE
+        tv_save.visibility = View.GONE
     }
 
     protected fun showSystemUI() {
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+
+        tv_page_indicator.visibility = View.VISIBLE
+        tv_save.visibility = View.VISIBLE
     }
 }

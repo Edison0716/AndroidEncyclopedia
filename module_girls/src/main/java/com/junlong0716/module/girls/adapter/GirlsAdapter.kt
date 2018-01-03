@@ -1,9 +1,7 @@
 package com.junlong0716.module.girls.adapter
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
