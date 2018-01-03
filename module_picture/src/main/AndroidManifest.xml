@@ -4,7 +4,7 @@
     <application
         android:theme="@style/AppTheme">
         <activity android:name="com.htxcsoft.module_photo.ExhibitPhotoActivity"
-                  android:theme="@style/AppFullScreenTheme"
+                  android:theme="@style/PictureTheme"
                   android:screenOrientation="portrait"></activity>
     </application>
 </manifest>

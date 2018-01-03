@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatDelegate
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
@@ -29,7 +32,6 @@ class ExhibitPhotoActivity : BaseActivity<ExhibitPhotoContract.Presenter>() {
     private lateinit var mPhotoUrl: ArrayList<String>
     private lateinit var mPhotoList: ArrayList<Fragment>
 
-
     override fun beforeSetLayout() {
         var bundle = intent.extras
         var picUrl = bundle.getString("picUrl")
@@ -39,15 +41,21 @@ class ExhibitPhotoActivity : BaseActivity<ExhibitPhotoContract.Presenter>() {
 
     override fun getLayoutId(): Int = R.layout.activity_exhibit_photo
 
+    @SuppressLint("RestrictedApi")
     override fun initView(savedInstanceState: Bundle?) {
-        iv_back.bringToFront()
-        iv_back.setOnClickListener({
-            onBackPressed()
-        })
+        setSupportActionBar(toolbar)
+        toolbar.bringToFront()
+        if (supportActionBar != null) {
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        }
+        supportActionBar!!.setShowHideAnimationEnabled(true)
+
+
         mPhotoList = ArrayList()
         for (i in 0 until mPhotoUrl.size) {
             mPhotoList.add(ExhibitPhotoFragment.newInstance(mPhotoUrl[i], (i + 1).toString()))
         }
+
         tv_page_indicator.text = "1/${mPhotoUrl.size}"
         var exhibitPhotoAdapter = ExhibitPhotoAdapter(supportFragmentManager, mPhotoList)
         viewpager.adapter = exhibitPhotoAdapter
@@ -69,10 +77,47 @@ class ExhibitPhotoActivity : BaseActivity<ExhibitPhotoContract.Presenter>() {
             }
         })
 
+        hideOrShowToolbar()
+
     }
 
     override fun attachPresenter() {
         mPresenter = ExhibitPhotoPresenter()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    fun hideOrShowToolbar() {
+        if (supportActionBar!!.isShowing()) {
+            supportActionBar!!.hide()
+            hideSystemUI()
+        } else {
+            showSystemUI()
+            supportActionBar!!.show()
+        }
+    }
+
+
+    protected fun hideSystemUI() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+    }
+
+    protected fun showSystemUI() {
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+    }
 }

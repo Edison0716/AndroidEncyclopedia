@@ -9,7 +9,11 @@
     </style>
 
 
-    <style name="AppTheme" parent="AppBaseTheme"/>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
 
     <style name="AppFullScreenTheme" parent="AppBaseTheme">
         <item name="android:windowFullscreen">true</item>

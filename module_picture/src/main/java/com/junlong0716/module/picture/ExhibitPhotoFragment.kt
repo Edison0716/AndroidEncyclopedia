@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.view.ViewCompat
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.github.chrisbanes.photoview.PhotoView
 import com.htxcsoft.corelibrary.glide.GlideApp
+import com.junlong0716.module.common.constant.Constant.TRANSIT_PIC
 import com.junlong0716.module.common.glide.ProgressInterceptor
 import com.junlong0716.module.picture.R
 import com.junlong0716.module.picture.widget.CircleProgressView
@@ -50,7 +52,7 @@ class ExhibitPhotoFragment : Fragment() {
     private fun initView(view: View?) {
         photoView = view!!.findViewById<PhotoView>(R.id.photoView)
         progressView = view.findViewById<CircleProgressView>(R.id.cpv_progress)
-
+        ViewCompat.setTransitionName(photoView, TRANSIT_PIC)
         ProgressInterceptor.addListener(photoUrl) { progress ->
             progressView.progress = progress
         }
@@ -72,6 +74,11 @@ class ExhibitPhotoFragment : Fragment() {
                         progressView.visibility = View.GONE
                     }
                 })
+
+        photoView.setOnClickListener {
+            var activity = activity as ExhibitPhotoActivity
+            activity.hideOrShowToolbar()
+        }
 
     }
 

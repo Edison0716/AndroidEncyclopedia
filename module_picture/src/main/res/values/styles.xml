@@ -26,4 +26,10 @@
         <attr name="cpv_outerSize" format="dimension"/>
         <attr name="cpv_reachCapRound" format="boolean"/>
     </declare-styleable>
+
+
+    <style name="PictureTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 </resources>
