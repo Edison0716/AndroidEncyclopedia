@@ -29,7 +29,7 @@ class MainActivity : RxAppCompatActivity() {
     private val CURRENT_INDEX = "currentIndex"
     private lateinit var fragmentManager: FragmentManager
 
-    //EventBus 3.0 回调
+    //RxBus 回调
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun eventBus(r: DrawerEvent) {
         initDrawer(r.toolbar)

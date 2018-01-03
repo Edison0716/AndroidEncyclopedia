@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <com.junlong0716.module.weather.widget.WeatherLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.junlong0716.module.weather.widget.DynamicWeatherView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </com.junlong0716.module.weather.widget.WeatherLinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/weatherViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+</FrameLayout>

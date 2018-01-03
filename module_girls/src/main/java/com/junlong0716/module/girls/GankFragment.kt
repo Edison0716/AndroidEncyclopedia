@@ -26,7 +26,7 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
     private var isLoadingMore = false
     private var currentPage: Int = 1
 
-    //EventBus 3.0 回调
+    //RxBus 回调
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun eventBus(r: GirlsComingEvent) {
         if (r.from == "GankFragment") {
@@ -35,12 +35,12 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
                 girlsAdapter.addData(girlsAdapter.getData().size, r.girls)
                 isLoadingMore = false
             } else {
-                refreshLayout.isRefreshing = false
                 girlsList.addAll(r.girls)
                 girlsAdapter.notifyDataSetChanged()
                 currentPage = 2
             }
         }
+        refreshLayout.isRefreshing = false
     }
 
     override fun getLayoutId(): Int = R.layout.fragment_girls_list
@@ -64,13 +64,14 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
             override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView!!.canScrollVertically(1) && !isLoadingMore) {
+                    refreshLayout.post({
+                        refreshLayout.isRefreshing = true
+                    })
                     isLoadingMore = true
                     mPresenter!!.requestGankMeiZi(this@GankFragment, currentPage.toString())
                 }
             }
         })
-
-        girlsAdapter
     }
 
     override fun lazyFetchData() {
