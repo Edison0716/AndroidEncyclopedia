@@ -6,10 +6,14 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
+import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
+import com.junlong0716.module.common.event.DrawerEvent
+import com.junlong0716.module.common.rxbus.RxBus
 import java.util.ArrayList
 
 /**
@@ -29,6 +33,12 @@ class GirlsFragment : Fragment() {
 
         var tab = view.findViewById<TabLayout>(R.id.tabs)
 
+        var toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+
+        toolbar.title = "福利"
+
+        RxBus.getDefault().post(DrawerEvent(toolbar))
+
         var mPagerAdapter = ViewPagerAdapter(childFragmentManager)
 
         mPagerAdapter.addFrag(GankFragment(), "干货")
@@ -40,12 +50,14 @@ class GirlsFragment : Fragment() {
         tab.setupWithViewPager(pager)
 
         tab.tabMode = TabLayout.MODE_SCROLLABLE
+
         return view
     }
 
 
     inner class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         private val mFragmentList = ArrayList<Fragment>()
+
         private val mFragmentTitleList = ArrayList<String>()
 
         override fun getItem(position: Int): Fragment = mFragmentList.get(position)

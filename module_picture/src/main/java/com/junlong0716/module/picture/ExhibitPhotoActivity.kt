@@ -2,6 +2,7 @@ package com.htxcsoft.module_photo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatDelegate
@@ -51,6 +52,7 @@ class ExhibitPhotoActivity : BaseActivity<ExhibitPhotoContract.Presenter>() {
         }
         supportActionBar!!.setShowHideAnimationEnabled(true)
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+        supportActionBar!!.title = ""
 
         mPhotoList = ArrayList()
         for (i in 0 until mPhotoUrl.size) {

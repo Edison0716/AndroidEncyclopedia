@@ -6,8 +6,16 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.view.View
 import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.ToastUtils
+import com.junlong0716.module.common.event.DrawerEvent
+import com.junlong0716.module.common.rxbus.RxBus
+import com.junlong0716.module.common.rxbus.Subscribe
+import com.junlong0716.module.common.rxbus.ThreadMode
 import com.junlong0716.module.main.utils.RxDrawer
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -21,9 +29,16 @@ class MainActivity : RxAppCompatActivity() {
     private val CURRENT_INDEX = "currentIndex"
     private lateinit var fragmentManager: FragmentManager
 
+    //EventBus 3.0 回调
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun eventBus(r: DrawerEvent) {
+        initDrawer(r.toolbar)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        RxBus.getDefault().register(this)
         initView(savedInstanceState)
         initFragment(savedInstanceState)
     }
@@ -97,6 +112,23 @@ class MainActivity : RxAppCompatActivity() {
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) run { drawer_layout.closeDrawer(GravityCompat.START) } else {
             super.onBackPressed()
+        }
+    }
+
+
+    fun initDrawer(toolbar: Toolbar?) {
+        if (toolbar != null) {
+           var toggle = object :ActionBarDrawerToggle(this,drawer_layout,toolbar,R.string.open, R.string.close){
+               override fun onDrawerOpened(drawerView: View) {
+                   super.onDrawerOpened(drawerView)
+               }
+
+               override fun onDrawerClosed(drawerView: View) {
+                   super.onDrawerClosed(drawerView)
+               }
+           }
+            toggle.syncState()
+            drawer_layout.addDrawerListener(toggle)
         }
     }
 }

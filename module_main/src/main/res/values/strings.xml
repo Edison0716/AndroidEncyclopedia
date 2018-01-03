@@ -1,4 +1,7 @@
 <resources>
     <string name="module_main">主模块</string>
     <string name="menu_girls">福利</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

@@ -14,7 +14,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways|snap">
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:navigationIcon="@mipmap/ic_launcher">
 
             <TextView
                 android:id="@+id/toolbar_title"
