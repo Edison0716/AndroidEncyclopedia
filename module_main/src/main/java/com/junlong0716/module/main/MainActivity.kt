@@ -38,7 +38,9 @@ class MainActivity : RxAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        RxBus.getDefault().register(this)
+        if (!RxBus.getDefault().isRegistered(this)) {
+            RxBus.getDefault().register(this)
+        }
         initView(savedInstanceState)
         initFragment(savedInstanceState)
     }
@@ -129,6 +131,13 @@ class MainActivity : RxAppCompatActivity() {
            }
             toggle.syncState()
             drawer_layout.addDrawerListener(toggle)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (RxBus.getDefault().isRegistered(this)) {
+            RxBus.getDefault().unregister(this)
         }
     }
 }
