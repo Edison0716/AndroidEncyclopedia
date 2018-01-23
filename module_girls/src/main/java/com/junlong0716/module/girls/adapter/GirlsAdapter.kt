@@ -35,7 +35,12 @@ class GirlsAdapter(girls: ArrayList<MeiZi>, context: Context) : RecyclerView.Ada
         var girl = girls[position]
 
         if (girl.getHeight() != 0) {
-            holder!!.ivGirl.setOriginalSize(girl.getWidth()!!, girl.getHeight()!!)
+            try {
+                holder!!.ivGirl.setOriginalSize(girl.getWidth()!!, girl.getHeight()!!)
+            } catch (e: Exception) {
+                holder!!.ivGirl.setOriginalSize(236, 354)
+            }
+
         } else {
             holder!!.ivGirl.setOriginalSize(236, 354)
         }
