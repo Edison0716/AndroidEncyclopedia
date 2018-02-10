@@ -20,8 +20,6 @@ class WeatherFragment : BaseFragment<WeatherFPresenter>(), WeatherFContract.View
     override fun initViews(mRootView: View?) {
         var toolBar = mRootView!!.findViewById<Toolbar>(R.id.toolbar)
         RxBus.getDefault().post(DrawerEvent(toolBar))
-
-
     }
 
     override fun lazyFetchData() {

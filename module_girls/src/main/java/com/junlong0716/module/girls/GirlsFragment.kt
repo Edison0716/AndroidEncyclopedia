@@ -45,7 +45,7 @@ class GirlsFragment : Fragment() {
 
         pager.adapter = mPagerAdapter
 
-        pager.offscreenPageLimit = pager.getAdapter()!!.getCount()
+        pager.offscreenPageLimit = pager.adapter!!.count
 
         tab.setupWithViewPager(pager)
 

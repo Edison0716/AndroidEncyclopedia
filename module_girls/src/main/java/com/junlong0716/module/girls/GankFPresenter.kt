@@ -19,7 +19,6 @@ import io.reactivex.schedulers.Schedulers
  *@modified by:
  */
 class GankFPresenter : BasePresenter<GankFContract.View>(), GankFContract.Presenter {
-
     override fun requestGankMeiZi(fragment: RxFragment, page: String) {
         RetrofitClient.getRetrofitClient().create(ServerApi::class.java)
                 .getMezi(page)

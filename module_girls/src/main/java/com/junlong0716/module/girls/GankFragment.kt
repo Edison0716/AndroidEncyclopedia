@@ -35,6 +35,7 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
                 girlsAdapter.addData(girlsAdapter.getData().size, r.girls)
                 isLoadingMore = false
             } else {
+                girlsList.clear()
                 girlsList.addAll(r.girls)
                 girlsAdapter.notifyDataSetChanged()
                 currentPage = 2
@@ -47,6 +48,7 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
 
     override fun attachPresenter() {
         mPresenter = GankFPresenter()
+        mPresenter!!.attachView(this)
     }
 
     override fun initViews(mRootView: View?) {
@@ -77,7 +79,6 @@ class GankFragment : BaseFragment<GankFPresenter>(), GankFContract.View, SwipeRe
     override fun lazyFetchData() {
         currentPage = 1
         isLoadingMore = false
-        girlsList.clear()
         mPresenter!!.requestGankMeiZi(this, currentPage.toString())
     }
 

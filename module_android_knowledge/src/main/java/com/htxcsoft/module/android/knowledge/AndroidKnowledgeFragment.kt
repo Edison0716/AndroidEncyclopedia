@@ -1,8 +1,17 @@
 package com.htxcsoft.module.android.knowledge
 
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.view.View
+import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.blankj.utilcode.util.ToastUtils
+import com.htxcsoft.module.android.knowledge.adapter.KnowledgeAdapter
+import com.htxcsoft.module.android.knowledge.model.KnowledgeBean
 import com.junlong0716.module.common.base.BaseFragment
+import com.junlong0716.module.common.event.DrawerEvent
+import com.junlong0716.module.common.rxbus.RxBus
 
 /**
  *@author: 巴黎没有摩天轮Li
@@ -11,11 +20,22 @@ import com.junlong0716.module.common.base.BaseFragment
  *@modified by:
  */
 @Route(path = "/module_android_knowledge/AndroidKnowledgeFragment")
-class AndroidKnowledgeFragment : BaseFragment<AndroidKnowledgeFPresenter>(), AndroidKnowledgeFContract.View {
+class AndroidKnowledgeFragment : BaseFragment<AndroidKnowledgeFPresenter>(), AndroidKnowledgeFContract.View, KnowledgeAdapter.OnItemClickListener {
+    private lateinit var rvList: RecyclerView
+    private lateinit var knowledgeList: ArrayList<KnowledgeBean>
+
     override fun getLayoutId(): Int = R.layout.fragment_android_knowledge
 
     override fun initViews(mRootView: View?) {
+        knowledgeList = ArrayList()
+        knowledgeList.add(KnowledgeBean("View事件"))
 
+        var toolBar = mRootView!!.findViewById<Toolbar>(R.id.toolbar)
+        toolBar.title = getString(R.string.menu_android_knowledge)
+        RxBus.getDefault().post(DrawerEvent(toolBar))
+        rvList = mRootView.findViewById(R.id.rv_list)
+        rvList.layoutManager = LinearLayoutManager(activity)
+        rvList.adapter = KnowledgeAdapter(knowledgeList, this)
     }
 
     override fun lazyFetchData() {
@@ -25,5 +45,9 @@ class AndroidKnowledgeFragment : BaseFragment<AndroidKnowledgeFPresenter>(), And
     override fun attachPresenter() {
         mPresenter = AndroidKnowledgeFPresenter()
         mPresenter!!.attachView(this)
+    }
+
+    override fun onItemClickListener(position: Int) {
+        ToastUtils.showShort(position.toString())
     }
 }

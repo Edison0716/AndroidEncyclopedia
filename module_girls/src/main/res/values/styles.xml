@@ -1,9 +1,7 @@
 <resources>
 
 
-    <style name="TabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="textAllCaps">false</item>
-    </style>
+
 
 
 </resources>

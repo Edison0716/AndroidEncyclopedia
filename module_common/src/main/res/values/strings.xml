@@ -7,4 +7,8 @@
     <string name="bad_network">服务器异常</string>
     <string name="parse_error">解析服务器响应数据失败</string>
     <string name="unknown_error">未知错误</string>
+
+    <string name="menu_girls">福利</string>
+    <string name="menu_android_knowledge">Android知识</string>
+    <string name="menu_weather">天气</string>
 </resources>

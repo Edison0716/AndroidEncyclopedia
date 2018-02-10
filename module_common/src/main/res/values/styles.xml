@@ -32,4 +32,8 @@
     <style name="toolbar_theme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="colorControlNormal">@color/white</item>
     </style>
+
+    <style name="TabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
 </resources>
