@@ -45,7 +45,8 @@ class GirlsAdapter(girls: ArrayList<MeiZi>, context: Context) : RecyclerView.Ada
             holder!!.ivGirl.setOriginalSize(236, 354)
         }
 
-        GlideApp.with(context).load(girl.getUrl())
+        GlideApp.with(context)
+                .load(girl.getUrl())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.ic_glide_holder)
                 .transition(DrawableTransitionOptions.withCrossFade(500))

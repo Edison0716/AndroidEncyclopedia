@@ -1,1 +1,1 @@
-include ':app', ':module_common', ':module_main', ':module_girls', ':module_weather', ':module_picture'
+include ':app', ':module_common', ':module_main', ':module_girls', ':module_weather', ':module_picture', ':module_android_knowledge'
