@@ -5,6 +5,8 @@
     <application android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
         </activity>
+        <activity android:name=".module.android_view.FollowViewActivity">
+        </activity>
     </application>
 
 </manifest>

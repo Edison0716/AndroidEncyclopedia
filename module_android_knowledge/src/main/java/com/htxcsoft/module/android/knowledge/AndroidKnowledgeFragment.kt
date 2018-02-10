@@ -1,5 +1,6 @@
 package com.htxcsoft.module.android.knowledge
 
+import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
@@ -9,6 +10,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ToastUtils
 import com.htxcsoft.module.android.knowledge.adapter.KnowledgeAdapter
 import com.htxcsoft.module.android.knowledge.model.KnowledgeBean
+import com.htxcsoft.module.android.knowledge.module.android_view.FollowViewActivity
 import com.junlong0716.module.common.base.BaseFragment
 import com.junlong0716.module.common.event.DrawerEvent
 import com.junlong0716.module.common.rxbus.RxBus
@@ -48,6 +50,8 @@ class AndroidKnowledgeFragment : BaseFragment<AndroidKnowledgeFPresenter>(), And
     }
 
     override fun onItemClickListener(position: Int) {
-        ToastUtils.showShort(position.toString())
+        when (position) {
+            0 -> startActivity(Intent(activity, FollowViewActivity::class.java))
+        }
     }
 }
