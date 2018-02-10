@@ -24,8 +24,9 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 class MainActivity : RxAppCompatActivity() {
     private var currentFragmentTag: String? = null
-    private val FRAGMENT_TAG_GIRLS = "girls"
-    private val FRAGMENT_TAG_WEATHER = "weather"
+    private val FRAGMENT_TAG_GIRLS = "美女"
+    private val FRAGMENT_TAG_WEATHER = "天气"
+    private val FRAGMENT_TAG_ANDROID_KNOWLEDGE = "Android知识"
     private val CURRENT_INDEX = "currentIndex"
     private lateinit var fragmentManager: FragmentManager
 
@@ -76,14 +77,14 @@ class MainActivity : RxAppCompatActivity() {
                 FRAGMENT_TAG_WEATHER -> {
                     foundFragment = ARouter.getInstance().build("/module_weather/WeatherFragment").navigation() as Fragment
                 }
+                FRAGMENT_TAG_ANDROID_KNOWLEDGE -> {
+                    foundFragment = ARouter.getInstance().build("/module_android_knowledge/AndroidKnowledgeFragment").navigation() as Fragment
+                }
             }
         }
         when {
-            foundFragment == null -> {
-            }
-
+            foundFragment == null -> { }
             foundFragment.isAdded -> ft.show(foundFragment)
-
             else -> ft.add(R.id.contentLayout, foundFragment, name)
         }
         ft.commit()
@@ -101,15 +102,17 @@ class MainActivity : RxAppCompatActivity() {
     inner class NavigationItemSelected : NavigationView.OnNavigationItemSelectedListener {
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
             RxDrawer.closeDrawer(drawer_layout)!!.observeOn(AndroidSchedulers.mainThread()).subscribe {
+                item.isChecked = true
                 when (item.itemId) {
                     R.id.menu_girls -> {
-                        item.isChecked = true
                         switchContent(FRAGMENT_TAG_GIRLS)
                         //ARouter.getInstance().build("/module_girls/GirlsActivity").navigation()
                     }
                     R.id.menu_weather -> {
-                        item.isChecked = true
                         switchContent(FRAGMENT_TAG_WEATHER)
+                    }
+                    R.id.menu_android_knowledge -> {
+                        switchContent(FRAGMENT_TAG_ANDROID_KNOWLEDGE)
                     }
                 }
             }

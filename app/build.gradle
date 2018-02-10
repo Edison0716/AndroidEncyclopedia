@@ -13,6 +13,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -34,5 +35,6 @@ dependencies {
         implementation project(':module_girls')
         implementation project(':module_weather')
         implementation project(':module_picture')
+        implementation project(':module_android_knowledge')
     }
 }

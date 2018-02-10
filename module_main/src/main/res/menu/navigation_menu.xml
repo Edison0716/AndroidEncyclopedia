@@ -5,6 +5,12 @@
             android:id="@+id/menu_weather"
             android:icon="@drawable/ic_gank"
             android:title="@string/menu_weather"/>
+
+        <item
+            android:id="@+id/menu_android_knowledge"
+            android:icon="@drawable/ic_gank"
+            android:title="@string/menu_android_knowledge"/>
+
         <item
             android:id="@+id/menu_girls"
             android:icon="@drawable/ic_gank"

@@ -30,5 +30,6 @@ class WeatherFragment : BaseFragment<WeatherFPresenter>(), WeatherFContract.View
 
     override fun attachPresenter() {
         mPresenter = WeatherFPresenter()
+        mPresenter!!.attachView(this)
     }
 }
