@@ -3,6 +3,7 @@
           package="com.junlong0716.module.weather">
 
     <application
+        android:hardwareAccelerated="true"
         android:name="debug.WeatherModuleApplication"
         android:label="@string/module_weather"
         android:theme="@style/AppTheme">

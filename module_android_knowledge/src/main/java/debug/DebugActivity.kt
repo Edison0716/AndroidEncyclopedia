@@ -10,9 +10,9 @@ import com.htxcsoft.module.android.knowledge.R
  *@date: Created in 下午2:52 2018/2/11
  *@modified by:
  */
-class TestActivity : AppCompatActivity() {
+class DebugActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.debug_activity_test)
+        setContentView(R.layout.debug_activity)
     }
 }
