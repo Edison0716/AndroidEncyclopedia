@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.htxcsoft.module.android.knowledge">
+          package="com.htxcsoft.module.file.picker">
 
     <application
-        android:name="debug.AndroidKnowledgeModuleApplication"
+        android:name="debug.FilePickerModuleApplication"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name="debug.TestActivity">
+        <activity android:name="com.htxcsoft.module.file.picker.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

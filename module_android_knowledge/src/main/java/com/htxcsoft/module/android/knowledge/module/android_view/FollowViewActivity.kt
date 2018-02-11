@@ -7,7 +7,6 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
-import com.htxcsoft.module.android.knowledge.MainActivity
 import com.htxcsoft.module.android.knowledge.R
 import kotlinx.android.synthetic.main.activity_follow_view.*
 

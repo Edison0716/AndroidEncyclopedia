@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.junlong0716.module.main">
+          package="com.junlong0716.module.weather">
 
     <application
-        android:name="debug.PictureModuleApplication"
+        android:name="debug.WeatherModuleApplication"
         android:label="@string/module_weather"
         android:theme="@style/AppTheme">
+        <activity android:name=".DebugWeatherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

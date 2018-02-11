@@ -3,7 +3,7 @@
 
     <application
         android:theme="@style/AppTheme">
-        <activity android:name=".GirlsActivity"></activity>
+        <activity android:name="debug.DebugGirlsActivity"></activity>
         <service android:name=".service.GirlService"></service>
     </application>
 </manifest>

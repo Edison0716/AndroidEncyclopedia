@@ -36,5 +36,7 @@ dependencies {
         implementation project(':module_weather')
         implementation project(':module_picture')
         implementation project(':module_android_knowledge')
+        implementation project(':module_file_picker')
+
     }
 }
