@@ -35,9 +35,9 @@ class ExhibitPhotoActivity : BaseActivity<ExhibitPhotoContract.Presenter>() {
 
     override fun beforeSetLayout() {
         var bundle = intent.extras
-        var picUrl = bundle.getString("picUrl")
+        var picUrl = bundle.getStringArrayList("picUrl")
         mPhotoUrl = ArrayList()
-        mPhotoUrl.add(picUrl)
+        mPhotoUrl.addAll(picUrl)
     }
 
     override fun getLayoutId(): Int = R.layout.activity_exhibit_photo

@@ -59,7 +59,9 @@ class GirlsAdapter(girls: ArrayList<MeiZi>, context: Context) : RecyclerView.Ada
     private fun startPictureActivity(transitView: View, position: Int) {
         var options = ActivityOptionsCompat.makeSceneTransitionAnimation(context as AppCompatActivity, transitView, Constant.TRANSIT_PIC)
         var bundle = Bundle()
-        bundle.putString("picUrl", girls[position].getUrl())
+        var girlsList = ArrayList<String>()
+        girlsList.add(girls[position].getUrl()!!)
+        bundle.putStringArrayList("picUrl", girlsList)
         ARouter.getInstance().build("/module_picture/exhibit_photo_activity").with(bundle).withOptionsCompat(options).navigation(context as AppCompatActivity)
     }
 
