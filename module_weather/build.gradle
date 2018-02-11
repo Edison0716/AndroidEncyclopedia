@@ -14,7 +14,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
-
+        resourcePrefix "weather_"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }

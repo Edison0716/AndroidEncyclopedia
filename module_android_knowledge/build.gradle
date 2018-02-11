@@ -14,7 +14,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
-
+        resourcePrefix "android_knowledge_"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
