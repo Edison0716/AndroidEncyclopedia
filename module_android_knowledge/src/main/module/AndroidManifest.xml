@@ -13,8 +13,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity android:name=".module.android_view.FollowViewActivity"/>
+        <activity android:name=".module.android_view.DispatchEventActivity">
+        </activity>
     </application>
 
 </manifest>
