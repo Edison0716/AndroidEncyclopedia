@@ -3,10 +3,10 @@
           package="com.htxcsoft.module.android.knowledge">
 
     <application android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".module.android.view.FollowViewActivity">
-        </activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".module.android.view.FollowViewActivity"/>
+        <activity android:name=".module.android.view.ActivityDispatchEventActivity"/>
+        <activity android:name=".module.android.view.DispatchEventActivity"/>
     </application>
 
 </manifest>

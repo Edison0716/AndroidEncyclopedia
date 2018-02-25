@@ -48,7 +48,7 @@ class MainActivity : RxAppCompatActivity() {
 
     private fun initFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
-            switchContent(FRAGMENT_TAG_GIRLS)
+            switchContent(FRAGMENT_TAG_ANDROID_KNOWLEDGE)
         } else {
             currentFragmentTag = savedInstanceState.getString(CURRENT_INDEX)
             switchContent(currentFragmentTag!!)
