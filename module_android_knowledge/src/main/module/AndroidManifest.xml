@@ -16,7 +16,7 @@
         <activity android:name=".module.android.view.FollowViewActivity"/>
         <activity android:name=".module.android.view.DispatchEventActivity">
         </activity>
-        <activity android:name=".module.android.view.DispatchEvent2Activity">
+        <activity android:name=".module.android.view.ActivityDispatchEventActivity">
         </activity>
     </application>
 

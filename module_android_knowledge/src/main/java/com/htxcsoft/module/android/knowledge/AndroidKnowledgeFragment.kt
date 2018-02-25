@@ -8,7 +8,7 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.htxcsoft.module.android.knowledge.adapter.KnowledgeAdapter
 import com.htxcsoft.module.android.knowledge.model.KnowledgeBean
-import com.htxcsoft.module.android.knowledge.module.android.view.DispatchEvent2Activity
+import com.htxcsoft.module.android.knowledge.module.android.view.ActivityDispatchEventActivity
 import com.htxcsoft.module.android.knowledge.module.android.view.DispatchEventActivity
 import com.htxcsoft.module.android.knowledge.module.android.view.FollowViewActivity
 import com.junlong0716.module.common.base.BaseFragment
@@ -56,7 +56,7 @@ class AndroidKnowledgeFragment : BaseFragment<AndroidKnowledgeFPresenter>(), And
         when (position) {
             0 -> startActivity(Intent(activity, FollowViewActivity::class.java))
             1 -> startActivity(Intent(activity, DispatchEventActivity::class.java))
-            2 -> startActivity(Intent(activity, DispatchEvent2Activity::class.java))
+            2 -> startActivity(Intent(activity, ActivityDispatchEventActivity::class.java))
         }
     }
 

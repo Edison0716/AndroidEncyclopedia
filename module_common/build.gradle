@@ -72,6 +72,8 @@ dependencies {
 
     compile 'com.blankj:utilcode:1.10.0'
 
+    compile 'com.orhanobut:logger:2.1.1'
+
     //support test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

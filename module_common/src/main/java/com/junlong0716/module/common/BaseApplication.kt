@@ -4,6 +4,9 @@ import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.Utils
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
+
 
 /**
  *@author: 巴黎没有摩天轮Li
@@ -16,6 +19,7 @@ open class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         Utils.init(this)
+        Logger.addLogAdapter(AndroidLogAdapter())
         initARouter()
 
     }
