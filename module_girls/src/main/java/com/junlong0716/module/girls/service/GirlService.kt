@@ -57,6 +57,7 @@ class GirlService : IntentService("GirlService") {
                 girls[i].setWidth(bitmap.width)
             }
         }
+
         RxBus.getDefault().post(GirlsComingEvent(from, girls))
     }
 }

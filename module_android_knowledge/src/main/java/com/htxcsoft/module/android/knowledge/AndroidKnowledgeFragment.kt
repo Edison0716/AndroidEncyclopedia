@@ -5,13 +5,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.View
-import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.blankj.utilcode.util.ToastUtils
 import com.htxcsoft.module.android.knowledge.adapter.KnowledgeAdapter
 import com.htxcsoft.module.android.knowledge.model.KnowledgeBean
-import com.htxcsoft.module.android.knowledge.module.android_view.DispatchEventActivity
-import com.htxcsoft.module.android.knowledge.module.android_view.FollowViewActivity
+import com.htxcsoft.module.android.knowledge.module.android.view.DispatchEvent2Activity
+import com.htxcsoft.module.android.knowledge.module.android.view.DispatchEventActivity
+import com.htxcsoft.module.android.knowledge.module.android.view.FollowViewActivity
 import com.junlong0716.module.common.base.BaseFragment
 import com.junlong0716.module.common.event.DrawerEvent
 import com.junlong0716.module.common.rxbus.RxBus
@@ -32,7 +31,9 @@ class AndroidKnowledgeFragment : BaseFragment<AndroidKnowledgeFPresenter>(), And
     override fun initViews(mRootView: View?) {
         knowledgeList = ArrayList()
         knowledgeList.add(KnowledgeBean("View事件"))
-        knowledgeList.add(KnowledgeBean("View事件分发机制"))
+        knowledgeList.add(KnowledgeBean("View事件分发机制教程"))
+        knowledgeList.add(KnowledgeBean("View事件分发机制实例"))
+
 
         var toolBar = mRootView!!.findViewById<Toolbar>(R.id.toolbar)
         toolBar.title = getString(R.string.menu_android_knowledge)
@@ -55,6 +56,7 @@ class AndroidKnowledgeFragment : BaseFragment<AndroidKnowledgeFPresenter>(), And
         when (position) {
             0 -> startActivity(Intent(activity, FollowViewActivity::class.java))
             1 -> startActivity(Intent(activity, DispatchEventActivity::class.java))
+            2 -> startActivity(Intent(activity, DispatchEvent2Activity::class.java))
         }
     }
 
