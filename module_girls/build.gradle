@@ -36,6 +36,7 @@ android {
     sourceSets {
         main {
             if (isModule.toBoolean()) {
+                //注意 有的时候复制粘贴 manifest 的 m 不能为大写
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'

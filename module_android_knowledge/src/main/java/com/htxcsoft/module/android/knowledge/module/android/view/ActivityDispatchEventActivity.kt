@@ -24,8 +24,8 @@ class ActivityDispatchEventActivity : AppCompatActivity(), View.OnTouchListener,
 
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
         Logger.d("OnTouchListener -- onTouch -- action ${event!!.action} -- $v")
-        return true  //onclick 失效
-        //return false
+        //return true  //onclick 失效
+        return false
     }
 
 
@@ -39,6 +39,8 @@ class ActivityDispatchEventActivity : AppCompatActivity(), View.OnTouchListener,
         Logger.e("ActivityDispatchEventActivity -- dispatchTouchEvent -- action ${ev!!.action}")
 
         //return false 如果返回false/true 则事件无法继续分发
+
+        //return true
 
         return super.dispatchTouchEvent(ev)
     }

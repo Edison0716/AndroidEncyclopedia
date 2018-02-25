@@ -31,8 +31,8 @@ class DispatchTouchLinearLayout : LinearLayout {
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
 
         Logger.d("DispatchTouchLinearLayout -- onInterceptTouchEvent -- action ${ev!!.action}")
-
         return super.onInterceptTouchEvent(ev)
+        //return true
     }
 
 
