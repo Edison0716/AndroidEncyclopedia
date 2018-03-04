@@ -7,6 +7,8 @@
         <activity android:name=".module.android.view.FollowViewActivity"/>
         <activity android:name=".module.android.view.ActivityDispatchEventActivity"/>
         <activity android:name=".module.android.view.DispatchEventActivity"/>
+        <activity android:name=".module.android.designmode.DesignModeActivity">
+        </activity>
     </application>
 
 </manifest>
