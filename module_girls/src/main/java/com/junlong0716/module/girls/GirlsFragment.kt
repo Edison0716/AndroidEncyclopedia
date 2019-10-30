@@ -60,7 +60,7 @@ class GirlsFragment : Fragment() {
 
         private val mFragmentTitleList = ArrayList<String>()
 
-        override fun getItem(position: Int): Fragment = mFragmentList.get(position)
+        override fun getItem(position: Int): Fragment = mFragmentList[position]
 
         override fun getCount(): Int = mFragmentList.size
 

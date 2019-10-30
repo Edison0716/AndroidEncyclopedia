@@ -20,8 +20,8 @@ import java.io.Serializable
 
 class GirlService : IntentService("GirlService") {
     companion object {
-        private val KEY_EXTRA_GIRL_FROM = "from"
-        private val KEY_EXTRA_GIRL_LIST = "data"
+        private const val KEY_EXTRA_GIRL_FROM = "from"
+        private const val KEY_EXTRA_GIRL_LIST = "data"
         fun start(context: Context, from: String, girlList: ArrayList<MeiZi>) {
             val intent = Intent(context, GirlService::class.java)
             intent.putExtra(KEY_EXTRA_GIRL_FROM, from)
@@ -36,8 +36,8 @@ class GirlService : IntentService("GirlService") {
 
 
     override fun onHandleIntent(p0: Intent?) {
-        var from = p0!!.getStringExtra(KEY_EXTRA_GIRL_FROM)
-        var girls = p0!!.getSerializableExtra(KEY_EXTRA_GIRL_LIST) as ArrayList<MeiZi>
+        val from = p0!!.getStringExtra(KEY_EXTRA_GIRL_FROM)
+        val girls = p0.getSerializableExtra(KEY_EXTRA_GIRL_LIST) as ArrayList<MeiZi>
 
         for (i in 0 until girls.size) {
             var bitmap: Bitmap? = null

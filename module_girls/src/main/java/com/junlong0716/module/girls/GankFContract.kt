@@ -1,6 +1,5 @@
 package com.junlong0716.module.girls
 
-import android.content.Context
 import com.junlong0716.module.common.base.IPresenter
 import com.junlong0716.module.common.base.IView
 import com.trello.rxlifecycle2.components.support.RxFragment
